@@ -30,4 +30,17 @@ class UserModel extends CI_Model {
 			return false;
 		}
 	}
+	public function Getobat_nib(){
+		$this->db->select('*');
+		$this->db->from('obat');
+		$this->db->join('jenisobat','jenisobat.id_jenis=obat.id_jenis');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function Getjenis_nib(){
+		$this->db->select('*');
+		$this->db->from('jenisobat');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
