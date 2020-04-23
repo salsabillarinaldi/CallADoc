@@ -43,4 +43,17 @@ class UserModel extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	public function Getdokter_nid(){
+		$this->db->select('*');
+		$this->db->from('dokter');
+		$this->db->join('spesialis','spesialis.id_spesialis=dokter.id_spesialis');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function Getspesialis_nid(){
+		$this->db->select('*');
+		$this->db->from('spesialis');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
