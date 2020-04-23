@@ -39,6 +39,39 @@ class Page extends MY_Controller {
 		$data_spesialis = $this->UserModel->Getspesialis_nid();
 		$this->render_backend('dokter',['data'=>$data_dokter,'dataJ'=>$data_spesialis]);
 	}
+	public function hapusdokter($nid)
+	{
+		$this->UserModel->hapus_dokter($nid);
+		redirect('Page/dokter');
+	}
+	public function tambahdokter()
+	{
+		$input_data = [
+			'nid' => $this->input->post('nid', true),
+			'nama' => $this->input->post('nama', true),
+			'alamat' => $this->input->post('alamat', true),
+			'id_spesialis' => $this->input->post('id_spesialis', true),
+		];
+		$this->UserModel->tambah_dokter($input_data);
+		redirect('Page/dokter');
+
+	}
+	public function editdokter()
+	{
+
+		$nid = $this->input->post('nid');
+		$nama = $this->input->post('nama');
+		$alamat = $this->input->post('alamat');
+		$id_spesialis = $this->input->post('id_spesialis');
+		$data = array(
+			'nama' => $nama,
+			'alamat' => $alamat,
+			'id_spesialis' => $id_spesialis,
+		);
+		$this->UserModel->edit_dokter($nid,$data);
+
+		redirect('page/dokter');	
+	}
 
 }
 
