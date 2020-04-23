@@ -56,4 +56,12 @@ class UserModel extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	public function hapus_dokter($nid)
+	{
+		return $this->db->delete('dokter', ['nid' => $nid]);
+	}
+	public function tambah_dokter($data)
+	{
+		return $this->db->insert('dokter', $data);
+	}
 }
