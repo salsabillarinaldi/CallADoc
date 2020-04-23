@@ -60,6 +60,12 @@ class UserModel extends CI_Model {
 	{
 		return $this->db->delete('dokter', ['nid' => $nid]);
 	}
+	public function edit_dokter($nid,$data)
+	{
+		$this->db->where('nid', $nid);
+		$this->db->update('dokter', $data);
+	    return;
+	}
 	public function tambah_dokter($data)
 	{
 		return $this->db->insert('dokter', $data);
