@@ -23,7 +23,22 @@ class Page extends MY_Controller {
 		$data_jenis = $this->UserModel->Getjenis_nib();
 		$this->render_backend('obat',['data'=>$data_obat,'dataJ'=>$data_jenis]);
 	}
+	public function dokter()
+	{
+		if($this->session->userdata('role') != 'admin') // Jika user yg login bukan admin
+	    show_404(); // Redirect ke halaman 404 Not found
 
+		$data_dokter = $this->UserModel->Getdokter_nid();
+		$data_spesialis = $this->UserModel->Getspesialis_nid();
+		$this->render_backend('admin/dokter',['data'=>$data_dokter,'dataJ'=>$data_spesialis]);
+	}
+	public function indexdokter()
+	{
+	
+		$data_dokter = $this->UserModel->Getdokter_nid();
+		$data_spesialis = $this->UserModel->Getspesialis_nid();
+		$this->render_backend('dokter',['data'=>$data_dokter,'dataJ'=>$data_spesialis]);
+	}
 
 }
 
