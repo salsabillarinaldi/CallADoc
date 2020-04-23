@@ -16,7 +16,15 @@ class Page extends MY_Controller {
 		// function render_backend tersebut dari file core/MY_Controller.php
 		$this->render_backend('kontak'); // load view kontak.php
 	}
-	
+	public function obat()
+	{
+		if($this->session->userdata('role') != 'admin') // Jika user yg login bukan admin
+	    show_404(); // Redirect ke halaman 404 Not found
+
+		$data_obat = $this->UserModel->Getobat_nib();
+		$data_jenis = $this->UserModel->Getjenis_nib();
+		$this->render_backend('admin/obat',['data'=>$data_obat,'dataJ'=>$data_jenis]);
+	}
 	public function indexobat()
 	{
 		$data_obat = $this->UserModel->Getobat_nib();
