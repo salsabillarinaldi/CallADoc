@@ -343,7 +343,7 @@ class Page extends MY_Controller {
     }
     function hapuspesan($nid, $nopesan) {
         $this -> UserModel -> hapus_pesan($nopesan);
-        $data_pesan = $this -> Model -> Getpesan($nid);
+        $data_pesan = $this -> UserModel -> Getpesan($nid);
         $this -> session -> set_flashdata('message', 'Pesan telah dihapus');
         $this -> show_template('pesan', ['data' => $data_pesan]);
     }
