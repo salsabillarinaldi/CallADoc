@@ -6,40 +6,47 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="<?php echo base_url('assets/img/icon.png') ?>" style="max-width:50px; margin-top:-12px" width="42px" height="42px" /></a>
+        <a class="navbar-brand" href="#"><img style="max-width:50px; margin-top: -13px " src="<?php echo base_url('assets/img/icon.png'); ?>" width="45px" height="45px" ></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
             <li><a href="<?php echo base_url('page/home'); ?>">Home</a></li>
-             <?php
-            // Cek role user
-            if($this->session->userdata('role') == 'admin'){ // Jika role-nya admin
-                ?>
-                <li><a href="<?php echo base_url('page/dokter'); ?>">Doctor</a></li>
-                <?php
-            }
-            ?>
-
-            <?php
-            // Cek role user
-            if($this->session->userdata('role') == 'admin'){ // Jika role-nya admin
-                ?>
-                <li><a href="<?php echo base_url('page/obat'); ?>">Medicine</a></li>
-                <?php
-            }
-            ?>
-
-            <li><a href="<?php echo base_url('page/kontak'); ?>">Contact</a></li>
+            <li><a href="<?php echo base_url('page/indexdokter'); ?>">Ask Doctor</a></li>
+            <li><a href="<?php echo base_url('page/kontak'); ?>">Contact Us</a></li>
+            <li><a href="<?php echo base_url('page/aboutus'); ?>">About Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-         <li class="dropdown pull-right">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Hello, <?php echo $this->session->userdata('nama') ?>
+            <li><a href="<?php echo base_url('page/tampil_cart'); ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Trolley</a></li>
+            <li class="dropdown pull-right">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Hallo, <?php echo $this->session->userdata('nama') ?>
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#"><?php echo $this->session->userdata('role') ?></a></li>
-          <li><a href="<?php echo base_url('auth/logout') ?>">Logout</a></li>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><b>Role: <?php echo $this->session->userdata('role') ?></b></a></li>
+                    <?php
+            if($this->session->userdata('role') == 'Dokter'){ 
+                ?>
+                        <li><a href="<?php echo base_url();?>page/reservasi/<?php echo $this->session->userdata('id')?>"><b>Kelola Perjanjian</b></a></li>
+                        <?php
+            }
+            ?>
+                            <?php
+            if($this->session->userdata('role') == 'Admin'){ 
+                ?>
+                                <li><a href="<?php echo base_url('page/dokter'); ?>"><b>Kelola Dokter</b></a></li>
+                                <?php
+            }
+            ?>
+
+                                    <?php
+            if($this->session->userdata('role') == 'Admin'){
+                ?>
+                                        <li><a href="<?php echo base_url('page/obat'); ?>"><b>Kelola Obat</b></a></li>
+                                        <?php
+            }
+            ?>
+                                            <li><a href="<?php echo base_url('auth/logout') ?>">Keluar</a></li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    </div><!--/.nav-collapse -->
+    </div>
 </div>
