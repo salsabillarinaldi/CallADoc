@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Call A Doc</title>
 
     <!-- Load File CSS Bootstrap  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <!-- Load File CSS Bootstrap  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-    <!-- Load File Jquery  -->
+    <!--<link href="<?php echo base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Load File Datatables  -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/css/jquery.dataTables.css">
-    <!-- Load File Datatables  -->
-    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.js"></script>
-    <!-- Load File JS Bootstrap-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <!--FontAwesome-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!--FontAwesome-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Style Penting -->
+    <!--ADMIN LTE-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
     <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/dist/css/AdminLTE.min.css">
-    <!-- Google Font Wajib -->
-    <link rel="stylesheet " href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic ">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href=https://adminlte.io/themes/AdminLTE/dist/css/skins/_all-skins.min.css">
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- FastClick -->
+    <script src="https://adminlte.io/themes/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
-    <script src="https://adminlte.io/themes/AdminLTE/dist/js/adminlte.min.js "></script>
-    <!-- DatePicker -->
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <!-- AdminLTE App -->
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://adminlte.io/themes/AdminLTE/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="https://adminlte.io/themes/AdminLTE/dist/js/demo.js"></script>
+    <!-- iCheck -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/plugins/iCheck/square/blue.css">
+    <script src="https://adminlte.io/themes/AdminLTE/plugins/iCheck/icheck.min.js"></script>
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <script src="https://adminlte.io/themes/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
     <style>
-        html,
-        body {
-            padding-top: 30px;
-            background-color: white;
-            height: 100%;
-            margin: 0;
-        }
-        
-        .footer {
+    body {
+        min-height: 2000px;
+        padding-top: 70px;
+    }
+    .footer {
             padding: 50px 0 20px 0;
             background-color: #35404f;
             color: #878c94;
@@ -113,80 +116,6 @@
             font-size: 25px;
             padding: 10px 10px;
         }
-        
-        .index-content a:hover {
-            color: black;
-            text-decoration: none;
-        }
-        
-        .index-content {
-            margin-bottom: 20px;
-            padding: 50px 0px;
-        }
-        
-        .index-content .row {
-            margin-top: 20px;
-        }
-        
-        .index-content a {
-            color: black;
-        }
-        
-        .index-content .card {
-            background-color: #FFFFFF;
-            padding: 0;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
-            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-        }
-        
-        .index-content .card:hover {
-            box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
-            color: black;
-        }
-        
-        .index-content .card img {
-            width: 100%;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-        
-        .index-content .card h4 {
-            margin: 20px;
-        }
-        
-        .index-content .card p {
-            margin: 20px;
-            opacity: 0.65;
-        }
-        
-        .index-content .blue-button {
-            width: 100px;
-            -webkit-transition: background-color 1s, color 1s;
-            /* For Safari 3.1 to 6.0 */
-            transition: background-color 1s, color 1s;
-            min-height: 20px;
-            background-color: #002E5B;
-            color: #ffffff;
-            border-radius: 4px;
-            text-align: center;
-            font-weight: lighter;
-            margin: 0px 20px 15px 20px;
-            padding: 5px 0px;
-            display: inline-block;
-        }
-        
-        .index-content .blue-button:hover {
-            background-color: #dadada;
-            color: #002E5B;
-        }
-        
-        @media (max-width: 768px) {
-            .index-content .col-lg-4 {
-                margin-top: 20px;
-            }
-        }
     </style>
 </head>
 
@@ -201,8 +130,8 @@
         echo $headernya;
         ?>
     </nav>
-    <div class="container">
 
+    <div class="container">
         <?php
         /*
         * Variabel $contentnya diambil dari core MY_Controller
@@ -211,6 +140,9 @@
         echo $contentnya;
         ?>
     </div>
+    <br />
+    <br />
+    <br />
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -263,6 +195,8 @@
         </div>
 
     </footer>
+    <!-- Load file Javascript Bootstrap & jQuery -->
+    <!--<script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>-->
 </body>
-
 </html>

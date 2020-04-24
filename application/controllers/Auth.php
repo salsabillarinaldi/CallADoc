@@ -49,11 +49,7 @@ class Auth extends MY_Controller {
 					'authenticated'=>true, // Buat session authenticated dengan value true
 					'username'=>$user->username,  // Buat session username
 					'nama'=>$user->nama, // Buat session nama
-					'role'=>$user->role, // Buat session role
-					'alamat'=>$user->alamat, // Buat session alamat
-					'nohp'=>$user->nohp,// Buat session nohp
-					'nid'=>$user->nid,
-					'id'=>$user->id // Buat session id
+					'role'=>$user->role // Buat session role
 				);
 
 				$this->session->set_userdata($session); // Buat session sesuai $session
@@ -69,8 +65,6 @@ class Auth extends MY_Controller {
 		$pass = $this->input->post('password');
 		$repass = $this->input->post('re-password');
 		$nama = $this->input->post('nama');
-		$alamat = $this->input->post('alamat');
-		$nohp = $this->input->post('nohp');
 		if ($pass != $repass){
 			$this->session->set_flashdata('message', 'Password tidak cocok'); // Buat session flashdata
 			redirect('auth/registerindex');
@@ -81,9 +75,7 @@ class Auth extends MY_Controller {
 				$data = array(
 					'username' => $username,
 					'password' => $pass,
-					'nama' => $nama,
-					'nohp' => $nohp,
-					'alamat' => $alamat
+					'nama' => $nama
 				);
 				$result = $this->UserModel->insert_new_profle($data);
 				if($result){
@@ -95,59 +87,6 @@ class Auth extends MY_Controller {
 				}
 			}
 		}
-
-	public function registerdokter(){
-		$username = $this->input->post('username');
-		$pass = $this->input->post('password');
-		$repass = $this->input->post('re-password');
-		$nama = $this->input->post('nama');
-		$alamat = $this->input->post('alamat');
-		$nohp = $this->input->post('nohp');
-		$id_spesialis = $this->input->post('id_spesialis');
-		$role = $this->input->post('role');
-		if ($pass != $repass){
-			$this->session->set_flashdata('message', 'Password tidak cocok'); 
-			redirect('page/dokter');
-		}else if($this->UserModel->check_username($username)){
-			$this->session->set_flashdata('message', 'Username sudah ada'); 
-			redirect('page/dokter');
-		}else{
-			$initialize = $this->upload->initialize(array(
-				"upload_path" => './assets/Foto/',
-				"allowed_types" => "gif|jpg|jpeg|png|bmp",
-				"remove_spaces" => TRUE
-				
-				
-			));
-			$this->load->library('upload', $initialize);
-			if (!$this->upload->do_upload('foto')) {
-				$error = array('error' => $this->upload->display_errors());
-				$data['error_message'] = $this->upload->display_errors();
-				echo 'anda gagal upload';
-			} else {
-				$data = $this->upload->data();
-				$gambar = $data['file_name'];
-				$input_data = array(
-					'username' => $username,
-					'password' => $pass,
-					'nama' => $nama,
-					'nohp' => $nohp,
-					'role' => $role,
-					'alamat' => $alamat,
-					'id_spesialis' => $id_spesialis,
-					'foto' => $gambar
-				);
-				$result = $this->UserModel->insert_new_profle($input_data);
-				if($result){
-					$this->session->set_flashdata('message', 'Tambah Berhasil'); 
-					redirect('page/dokter');
-				} else {
-					$this->session->set_flashdata('message', 'Tambah Gagal'); 
-					redirect('page/dokter');
-				}
-			}
-		}
-	}
 
 	public function logout(){
 		$this->session->sess_destroy(); // Hapus semua session

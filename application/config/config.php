@@ -497,7 +497,7 @@ $config['time_reference'] = 'local';
 | If your PHP installation does not have short tag support enabled CI
 | can rewrite the tags on-the-fly, enabling you to utilize that syntax
 | in your view files.  Options are TRUE or FALSE (boolean)
-|base
+|
 | Note: You need to have eval() enabled for this to work.
 |
 */
