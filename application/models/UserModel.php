@@ -8,10 +8,21 @@ class UserModel extends CI_Model {
 
         return $result;
     }
+    public function get_produk_all()
+	{
+		$query = $this->db->get('tbl_obat');
+		return $query->result_array();
+	}
+	public function get_kategori_all()
+	{
+		$query = $this->db->get('tbl_kategori');
+		return $query->result_array();
+	}
     public function Getdokter_nid(){
 		$this->db->select('*');
-		$this->db->from('dokter');
-		$this->db->join('spesialis','spesialis.id_spesialis=dokter.id_spesialis');
+		$this->db->from('user');
+		$this->db->join('spesialis','spesialis.id_spesialis=user.id_spesialis');
+		$this->db->where('role','Dokter');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -21,46 +32,61 @@ class UserModel extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	public function Getreservasi($nid){
+		$this->db->select('*');
+		$this->db->from('reservasi');
+		$this->db->where('nid',$nid);
+		$query = $this->db->get();
+		return $query->result();
+	}
 	public function Getobat_nib(){
 		$this->db->select('*');
 		$this->db->from('obat');
 		$this->db->join('jenisobat','jenisobat.id_jenis=obat.id_jenis');
 		$query = $this->db->get();
-		return $query->result();
+		return $query->result_array();	
 	}
 	public function Getjenis_nib(){
 		$this->db->select('*');
 		$this->db->from('jenisobat');
 		$query = $this->db->get();
-		return $query->result();
+		return $query->result_array();
 	}
-	public function hapus_dokter($nid)
+	public function hapus_dokter($id)
 	{
-		return $this->db->delete('dokter', ['nid' => $nid]);
+		return $this->db->delete('user', ['id' => $id]);
+	}
+	public function hapus_reservasi($noreservasi)
+	{
+		return $this->db->delete('reservasi', ['noreservasi' => $noreservasi]);
 	}
 	public function edit_dokter($nid,$data)
 	{
-		$this->db->where('nid', $nid);
-		$this->db->update('dokter', $data);
+		$this->db->where('id', $nid);
+		$this->db->update('user', $data);
 	    return;
 	}
 	public function tambah_dokter($data)
 	{
 		return $this->db->insert('dokter', $data);
 	}
-	public function hapus_obat($nib)
+	public function hapus_obat($nio)
 	{
-		return $this->db->delete('obat', ['id_obat' => $nib]);
+		return $this->db->delete('tbl_obat', ['id_produk' => $nio]);
 	}
-	public function edit_obat($nib,$data)
+	public function edit_obat($nio,$data)
 	{
-		$this->db->where('id_obat', $nib);	
-		$this->db->update('obat', $data);
+		$this->db->where('id_produk', $nio);	
+		$this->db->update('tbl_obat', $data);
 	    return;
 	}
 	public function tambah_obat($data)
 	{
-		return $this->db->insert('obat', $data);
+		return $this->db->insert('tbl_obat', $data);
+	}
+	public function tambah_reservasi($data)
+	{
+		return $this->db->insert('reservasi', $data);
 	}
 	public function check_username($username){
 		$condition = "username =" . "'" . $username . "'";
@@ -83,4 +109,36 @@ class UserModel extends CI_Model {
 			return false;
 		}
 	}
+
+	public function tambah_pelanggan($data)
+	{
+		$this->db->insert('tbl_pelanggan', $data);
+		$id = $this->db->insert_id();
+		return (isset($id)) ? $id : FALSE;
+	}
+	
+	public function tambah_order($data)
+	{
+		$this->db->insert('tbl_order', $data);
+		$id = $this->db->insert_id();
+		return (isset($id)) ? $id : FALSE;
+	}
+	
+	public function tambah_detail_order($data)
+	{
+		$this->db->insert('tbl_detail_order', $data);
+	}
+	public function edit_profil($nio,$data)
+	{
+		$this->db->where('id', $nio);	
+		$this->db->update('user', $data);
+	    return;
+	}
+	public function Getuser(){
+		$this->db->select('*');
+		$this->db->from('user');
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
+
