@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2020 at 04:25 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Apr 24, 2020 at 09:16 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -129,7 +128,7 @@ INSERT INTO `tbl_kategori` (`id`, `nama_kategori`) VALUES
 CREATE TABLE `tbl_obat` (
   `id_produk` int(10) UNSIGNED NOT NULL,
   `nama_produk` varchar(50) DEFAULT NULL,
-  `deskripsi` varchar(50) DEFAULT NULL,
+  `deskripsi` varchar(150) DEFAULT NULL,
   `harga` varchar(10) DEFAULT NULL,
   `gambar` varchar(50) DEFAULT NULL,
   `kategori` int(10) DEFAULT NULL
@@ -141,7 +140,13 @@ CREATE TABLE `tbl_obat` (
 
 INSERT INTO `tbl_obat` (`id_produk`, `nama_produk`, `deskripsi`, `harga`, `gambar`, `kategori`) VALUES
 (1, 'Panadol Merah', 'Meredakan sakit kepala', '12000', 'pmerah.png', 1),
-(10, 'Panadol Hijau', 'Meredakan Flu', '12000', 'phijau.jpg', 1);
+(2, 'Lanamol', 'meredakan pusing', '13254', 'lanamol.jpg', 1),
+(3, 'Voltaren', 'Meredakan nyeri otot', '30000', 'voltaren.jpg', 1),
+(4, 'Asam Mefenamat', 'meredakan nyeri, seperti sakit gigi, sakit kepala,', '15999', 'AsamMefenamat.jpg', 1),
+(5, 'Cataflam', 'mengatasi penyakit peradangan, seperti osteoarthritis dan rheumatoid arthritis.', '13500', 'cataflam.jpg', 1),
+(10, 'Panadol Hijau', 'Meredakan Flu', '12000', 'phijau.jpg', 1),
+(14, 'Bodrex', 'Meredakan Sakit Kepala', '500', 'bodrex1.jpg', 1),
+(15, 'Voltadex', 'Meredakan nyeri dan mengurangi inflamasi pada pasien Rematoid Atritis akut dan kronis, nyeri pada tulang, spondilitis ankilosa ', '22000', 'voltadex1.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -311,7 +316,7 @@ ALTER TABLE `tbl_kategori`
 -- AUTO_INCREMENT for table `tbl_obat`
 --
 ALTER TABLE `tbl_obat`
-  MODIFY `id_produk` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_produk` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
