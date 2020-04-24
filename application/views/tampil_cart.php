@@ -52,7 +52,7 @@ $grand_total = $grand_total + $item['subtotal'];
 		}
 	else
 		{
-			echo "<h3>The troller is still empty</h3>";	
+			echo "<h3>Keranjang Belanja masih kosong</h3>";	
 		}	
 ?>
 </form>
