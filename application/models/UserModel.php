@@ -8,7 +8,60 @@ class UserModel extends CI_Model {
 
         return $result;
     }
-  
+    public function Getdokter_nid(){
+		$this->db->select('*');
+		$this->db->from('dokter');
+		$this->db->join('spesialis','spesialis.id_spesialis=dokter.id_spesialis');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function Getspesialis_nid(){
+		$this->db->select('*');
+		$this->db->from('spesialis');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function Getobat_nib(){
+		$this->db->select('*');
+		$this->db->from('obat');
+		$this->db->join('jenisobat','jenisobat.id_jenis=obat.id_jenis');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function Getjenis_nib(){
+		$this->db->select('*');
+		$this->db->from('jenisobat');
+		$query = $this->db->get();
+		return $query->result();
+	}
+	public function hapus_dokter($nid)
+	{
+		return $this->db->delete('dokter', ['nid' => $nid]);
+	}
+	public function edit_dokter($nid,$data)
+	{
+		$this->db->where('nid', $nid);
+		$this->db->update('dokter', $data);
+	    return;
+	}
+	public function tambah_dokter($data)
+	{
+		return $this->db->insert('dokter', $data);
+	}
+	public function hapus_obat($nib)
+	{
+		return $this->db->delete('obat', ['id_obat' => $nib]);
+	}
+	public function edit_obat($nib,$data)
+	{
+		$this->db->where('id_obat', $nib);	
+		$this->db->update('obat', $data);
+	    return;
+	}
+	public function tambah_obat($data)
+	{
+		return $this->db->insert('obat', $data);
+	}
 	public function check_username($username){
 		$condition = "username =" . "'" . $username . "'";
 		$this->db->select('*');
@@ -29,45 +82,5 @@ class UserModel extends CI_Model {
 		} else {
 			return false;
 		}
-	}
-	public function Getobat_nib(){
-		$this->db->select('*');
-		$this->db->from('obat');
-		$this->db->join('jenisobat','jenisobat.id_jenis=obat.id_jenis');
-		$query = $this->db->get();
-		return $query->result();
-	}
-	public function Getjenis_nib(){
-		$this->db->select('*');
-		$this->db->from('jenisobat');
-		$query = $this->db->get();
-		return $query->result();
-	}
-	public function Getdokter_nid(){
-		$this->db->select('*');
-		$this->db->from('dokter');
-		$this->db->join('spesialis','spesialis.id_spesialis=dokter.id_spesialis');
-		$query = $this->db->get();
-		return $query->result();
-	}
-	public function Getspesialis_nid(){
-		$this->db->select('*');
-		$this->db->from('spesialis');
-		$query = $this->db->get();
-		return $query->result();
-	}
-	public function hapus_dokter($nid)
-	{
-		return $this->db->delete('dokter', ['nid' => $nid]);
-	}
-	public function edit_dokter($nid,$data)
-	{
-		$this->db->where('nid', $nid);
-		$this->db->update('dokter', $data);
-	    return;
-	}
-	public function tambah_dokter($data)
-	{
-		return $this->db->insert('dokter', $data);
 	}
 }
