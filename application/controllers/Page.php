@@ -25,6 +25,41 @@ class Page extends MY_Controller {
 		$data_jenis = $this->UserModel->Getjenis_nib();
 		$this->render_backend('admin/obat',['data'=>$data_obat,'dataJ'=>$data_jenis]);
 	}
+	public function tambahobat()
+	{
+		$input_data = [
+			'id_obat' => $this->input->post('id_obat', true),
+			'namaobat' => $this->input->post('namaobat', true),
+			'harga' => $this->input->post('harga', true),
+			'id_jenis' => $this->input->post('id_jenis', true),
+		];
+		$this->UserModel->tambah_obat($input_data);
+		redirect('Page/obat');
+
+	}
+	public function editobat()
+	{
+
+		$id_obat = $this->input->post('id_obat');
+		$namaobat = $this->input->post('namaobat');
+		$harga    = $this->input->post('harga');
+		$id_jenis = $this->input->post('id_jenis');
+		$data = array(
+			'namaobat' => $namaobat,
+			'harga' => $harga,
+			'id_jenis' => $id_jenis,
+		);
+		$this->UserModel->edit_obat($id_obat,$data);
+
+		redirect('Page/obat');	
+
+
+	}
+	public function hapusobat($nib)
+	{
+		$this->UserModel->hapus_obat($nib);
+		redirect('Page/obat');
+	}
 	public function indexobat()
 	{
 		$data_obat = $this->UserModel->Getobat_nib();
