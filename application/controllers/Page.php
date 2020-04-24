@@ -319,6 +319,34 @@ class Page extends MY_Controller {
 		$data_kategori = $this->UserModel->get_kategori_all();
 		$this->render_backend('sukses',['data'=>$data_kategori]);
 	}
+	public function pesan($nid) {
+
+        $data_pesan = $this -> UserModel -> Getpesan($nid);
+        $this -> render_backend('pesan', ['data' => $data_pesan]);
+    }
+    
+    public function kirimpesan($nid) {
+
+        $input_data = [
+            'idpengirim' => $this -> input -> post('idpengirim', true),
+            'untuk' => $this -> input -> post('nama', true),
+            'subjek' => $this -> input -> post('subjek', true),
+            'pesan' => $this -> input -> post('pesan', true),
+            'nama' => $this -> input -> post('pengirim', true),
+            'tanggal' => $this -> input -> post('tanggal', true),
+            'jam' => $this -> input -> post('jam', true)
+        ];
+        $this -> UserModel -> kirimpesan($input_data);
+        $this -> session -> set_flashdata('message', 'Pesan telah terkirim');
+        redirect('Page/reservasi/'.$nid);
+
+    }
+    function hapuspesan($nid, $nopesan) {
+        $this -> UserModel -> hapus_pesan($nopesan);
+        $data_pesan = $this -> Model -> Getpesan($nid);
+        $this -> session -> set_flashdata('message', 'Pesan telah dihapus');
+        $this -> show_template('pesan', ['data' => $data_pesan]);
+    }
 
 }
 
