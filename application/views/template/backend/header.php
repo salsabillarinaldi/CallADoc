@@ -17,7 +17,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo base_url('page/tampil_cart'); ?>"><span class="glyphicon glyphicon-shopping-cart"></span> Trolley</a></li>
-            <li><a href="<?php echo base_url();?>page/pesan/<?php echo $this->session->userdata('id')?>"><span class="glyphicon glyphicon-envelope"></span> Daftar Perjanjian</a></li>
+            <li><a href="<?php echo base_url();?>page/pesan/<?php echo $this->session->userdata('id')?>"><span class="glyphicon glyphicon-envelope"></span> List of Aggrement</a></li>
             <li class="dropdown pull-right">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Hallo, <?php echo $this->session->userdata('nama') ?>
         <span class="caret"></span></a>
