@@ -10,7 +10,7 @@ if($this->session->flashdata('message')){ // Jika ada
         </a>
     </div>
 
-    <h2 style="margin-top: 0;margin-bottom: 0;">Tanya Dokter</h2>
+    <h2 style="margin-top: 0;margin-bottom: 0;">Ask Doctor</h2>
     <div class="clearfix"></div>
     <hr/>
     <table class="table table-bordered" id="table">

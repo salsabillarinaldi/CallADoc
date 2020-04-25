@@ -26,7 +26,7 @@
                     <?php
             if($this->session->userdata('role') == 'Dokter'){ 
                 ?>
-                        <li><a href="<?php echo base_url();?>page/reservasi/<?php echo $this->session->userdata('id')?>"><b>Kelola Perjanjian</b></a></li>
+                        <li><a href="<?php echo base_url();?>page/reservasi/<?php echo $this->session->userdata('id')?>"><b>manage aggrement</b></a></li>
                         <?php
             }
             ?>

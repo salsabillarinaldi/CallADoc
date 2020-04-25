@@ -3,7 +3,7 @@ if($this->session->flashdata('message')){
   echo '<div class="alert alert-success">'.$this->session->flashdata('message').'</div>'; 
 }
 ?>
-    <h2 style="margin-top: 0;margin-bottom: 0;">Data Perjanjian</h2>
+    <h2 style="margin-top: 0;margin-bottom: 0;">Aggrement Data</h2>
     <div class="clearfix"></div>
     <hr>
     <table class="table table-bordered" id="table">
@@ -67,7 +67,7 @@ if($this->session->flashdata('message')){
                     <div class="modal-header">
                         <div class="box-header">
                             <i class="fa fa-envelope"></i>
-                            <h3 class="box-title">Buat Reservasi</h3>
+                            <h3 class="box-title">Make a Reservation</h3>
                         </div>
                         <div class="modal-body">
                             <form method="post" action="<?php echo base_url('page/kirimpesan/'.$d->nid); ?>">
@@ -81,7 +81,7 @@ if($this->session->flashdata('message')){
                                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Subject" name="subjek" value="Appointment" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="formGroupExampleInput">Pengirim</label>
+                                    <label for="formGroupExampleInput">Sender</label>
                                     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Pengirim" name="pengirim" value="<?php echo $this->session->userdata('nama') ?>" readonly>
                                 </div>
                                 <div class="form-group">

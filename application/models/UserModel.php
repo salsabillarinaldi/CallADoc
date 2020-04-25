@@ -140,20 +140,16 @@ class UserModel extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
-	public function Getpesan($nid){
-		$this->db->select('*');
-		$this->db->from('pesan');
-		$this->db->where('idpengirim',$nid);
-		$query = $this->db->get();
-		return $query->result();
-	}
-	public function hapus_pesan($nopesan)
-	{
-		return $this->db->delete('pesan', ['nopesan' => $nopesan]);
-	}
-	public function kirimpesan($data)
-	{
+	public function kirimpesan($data){
 		return $this->db->insert('pesan', $data);
+	}
+	public function Getpesan($nid){
+		$hasil=$this->db->query("SELECT * FROM pesan where idpengirim='$nid'");
+		return $hasil->result();
+	}
+	function hapus_pesan($kobar){
+		$hasil=$this->db->query("DELETE FROM pesan WHERE nopesan='$kobar'");
+		return $hasil;
 	}
 }
 

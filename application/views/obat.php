@@ -1,5 +1,5 @@
 <div class="list-group">
-           <a href="<?php echo base_url()?>page/tampil_cart" class="list-group-item"><strong><i class="glyphicon glyphicon-shopping-cart"></i> KERANJANG BELANJA</strong></a>
+           <a href="<?php echo base_url()?>page/tampil_cart" class="list-group-item"><strong><i class="glyphicon glyphicon-shopping-cart"></i> Cart</strong></a>
           <?php 
       
         $cart= $this->cart->contents();
@@ -7,7 +7,7 @@
 // If cart is empty, this will show below message.
       if(empty($cart)) {
         ?>
-                <a class="list-group-item">Keranjang Belanja Kosong</a>
+                <a class="list-group-item">Empty Cart</a>
                 <?php
       }
       else
@@ -32,7 +32,7 @@
         </a>
     </div>
        
-<h2>Daftar Obat</h2>
+<h2>List of Medicine</h2>
 <hr>
 <table class="table table-bordered" id="table">
     <thead>

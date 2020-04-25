@@ -81,6 +81,12 @@ class Page extends MY_Controller {
 		$data_reservasi = $this->UserModel->Getreservasi($nid);
 		$this->render_backend('reservasi',['data'=>$data_reservasi]);
 	}
+	public function hapusreservasi($nid, $noreservasi) {
+        $this -> UserModel -> hapus_reservasi($noreservasi);
+        $data_reservasi = $this -> UserModel -> Getreservasi($nid);
+        $this -> session -> set_flashdata('message', 'Reservasi telah dihapus');
+        $this -> render_backend('reservasi', ['data' => $data_reservasi]);
+    }
 	public function indexobat()
 	{
 		$dataproduk = $this->UserModel->get_produk_all();
@@ -319,11 +325,6 @@ class Page extends MY_Controller {
 		$data_kategori = $this->UserModel->get_kategori_all();
 		$this->render_backend('sukses',['data'=>$data_kategori]);
 	}
-	public function pesan($nid) {
-
-        $data_pesan = $this -> UserModel -> Getpesan($nid);
-        $this -> render_backend('pesan', ['data' => $data_pesan]);
-    }
     
     public function kirimpesan($nid) {
 
@@ -341,12 +342,19 @@ class Page extends MY_Controller {
         redirect('Page/reservasi/'.$nid);
 
     }
-    function hapuspesan($nid, $nopesan) {
-        $this -> UserModel -> hapus_pesan($nopesan);
-        $data_pesan = $this -> UserModel -> Getpesan($nid);
-        $this -> session -> set_flashdata('message', 'Pesan telah dihapus');
-        $this -> show_template('pesan', ['data' => $data_pesan]);
-    }
+    public function pesan($nid) {
 
+      
+        $this -> render_backend('pesan');
+    }
+    public function datapesan($nid){
+        $data2=$this-> UserModel ->Getpesan($nid);
+        echo json_encode($data2);
+    }
+    public function hapuspesan(){
+        $kobar=$this->input->post('kode');
+        $data=$this-> UserModel ->hapus_pesan($kobar);
+        echo json_encode($data);
+    }
 }
 
