@@ -1,7 +1,7 @@
-<h2>Proses Order sukses</h2>
+<h2>Payment Succesfully</h2>
 <div class="kotak2">
-<p>Terima kasih sudah berbelanja di toko Call A Doc . Order anda sudah masuk ke database kami, dan dalam 3 x 24 Jam barang akan sampai di tempat anda.<br>
-Jangan segan mengontak kami jika ada permasalahan!</p>
+<p>Thank you for shopping at the Call A Doc store. Your order has entered our database, and within 3 x 24 hours the goods will arrive at your place. <br>
+Do not hesitate to contact us if there are problems!</p>
 </div>
  <br>
  <br>
