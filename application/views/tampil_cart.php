@@ -40,7 +40,7 @@ $grand_total = $grand_total + $item['subtotal'];
 <?php endforeach; ?>
 </tr>
 <tr>
-<td colspan="3"><b>Order Total: Rp <?php echo number_format($grand_total, 0,",","."); ?></b></td>
+<td colspan="3"><b>Total Order: Rp <?php echo number_format($grand_total, 0,",","."); ?></b></td>
 <td colspan="4" align="right">
 <a data-toggle="modal" data-target="#myModal"  class ='btn btn-sm btn-danger'>Kosongkan Cart</a>
 <button class='btn btn-sm btn-success'  type="submit">Update Cart</button>
@@ -52,7 +52,7 @@ $grand_total = $grand_total + $item['subtotal'];
 		}
 	else
 		{
-			echo "<h3>Keranjang Belanja masih kosong</h3>";	
+			echo "<h3>Cart is still empty</h3>";	
 		}	
 ?>
 </form>
