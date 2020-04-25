@@ -26,7 +26,7 @@
                     <?php
             if($this->session->userdata('role') == 'Dokter'){ 
                 ?>
-                        <li><a href="<?php echo base_url();?>page/reservasi/<?php echo $this->session->userdata('id')?>"><b>manage aggrement</b></a></li>
+                        <li><a href="<?php echo base_url();?>page/reservasi/<?php echo $this->session->userdata('id')?>"><b>manage agreement</b></a></li>
                         <?php
             }
             ?>
@@ -41,11 +41,11 @@
                                     <?php
             if($this->session->userdata('role') == 'Admin'){
                 ?>
-                                        <li><a href="<?php echo base_url('page/obat'); ?>"><b>Kelola Obat</b></a></li>
+                                        <li><a href="<?php echo base_url('page/obat'); ?>"><b>Manage Medicine</b></a></li>
                                         <?php
             }
             ?>
-                                            <li><a href="<?php echo base_url('auth/logout') ?>">Keluar</a></li>
+                                            <li><a href="<?php echo base_url('auth/logout') ?>">Logout</a></li>
                 </ul>
             </li>
         </ul>
